@@ -35,10 +35,10 @@ export class MainProvider extends React.Component<Props, State> {
     notifications: 0
   };
 
-  cancelToken = axios.CancelToken.source();
+  
 
   async componentDidMount() {
-    const data = await dataFetcher("", this.cancelToken);
+    const data = await dataFetcher();
     const { unread_messages: notifications } = data[this.state.realtor];
 
     this.setState({
@@ -47,9 +47,7 @@ export class MainProvider extends React.Component<Props, State> {
     });
   }
 
-  componentWillUnmount() {
-    this.cancelToken.cancel("Api is being canceled");
-  }
+  
 
   setRealtors = async (realtor: string) => {
     const { allRealtors }: any = this.state;
