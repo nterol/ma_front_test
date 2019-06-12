@@ -14,9 +14,15 @@ export const NavLeft = styled.div`
   flex-direction: row;
 `;
 
+type Props = {
+  unread: number;
+};
+
 export const NotificationButton = styled.button`
-  background: ${props => (props.unread > 0 ? "#7ed321" : "#cccccc")};
-  border-color: ${props => (props.unread > 0 ? "#7ed321" : "#cccccc")};
+  background: ${({ unread }: Props): string =>
+    unread > 0 ? "#7ed321" : "#cccccc"};
+  border-color: ${({ unread }: Props): string =>
+    unread > 0 ? "#7ed321" : "#cccccc"};
   color: white;
   border-radius: 5px;
   margin-left: 8px;

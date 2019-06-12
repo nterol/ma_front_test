@@ -9,7 +9,7 @@ type Props = {
 
 export const Contact: React.FunctionComponent<Props> = ({ contact }) => {
   return (
-    <ContactContainer>
+    <ContactContainer id="top">
       <ContactName>{`${contact.firstname} ${contact.lastname}`} </ContactName>
       <ContactGrid>
         <span>Email:</span>

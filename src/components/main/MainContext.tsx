@@ -48,7 +48,11 @@ export class MainProvider extends React.Component<Props, State> {
     this.setState({ realtor });
   };
 
-  setNotifications = (value: number) => {};
+  setNotifications = (value: number) => {
+    this.setState(({ notifications: prevNotifs }) => ({
+      notifications: prevNotifs + value
+    }));
+  };
 
   render() {
     const { realtor, allRealtors, notifications } = this.state;

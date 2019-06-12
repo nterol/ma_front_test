@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const ListContainer = styled.div`
   width: 30%;
+  height: 800px;
+  overflow: scroll;
 `;
 
 export const MessageContainer = styled.div`
@@ -25,10 +27,14 @@ export const MessageDate = styled.div`
   color: #329ded;
 `;
 
+type Props = {
+  read: boolean;
+};
+
 export const MessageSubject = styled.div`
   font-weight: bold;
   font-size: 16px;
-  color: ${({ read }) => (read ? "#acacac" : "#000")};
+  color: ${({ read }: Props) => (read ? "#acacac" : "#000")};
   margin-bottom: 8px;
 `;
 

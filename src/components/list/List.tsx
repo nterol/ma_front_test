@@ -8,18 +8,22 @@ type HeritedProps = Pick<MainContextType, "allRealtors" | "realtor">;
 interface Props extends HeritedProps {
   messages: Array<any>;
   readMessage: (arg: string) => void;
+  page: number;
 }
 
 const SList: React.FunctionComponent<Props> = ({
-  allRealtors,
-  realtor,
   messages,
-  readMessage
+  readMessage,
+  page
 }) => (
   <ListContainer>
     {messages.length ? (
       messages.map(message => (
-        <Message readMessage={readMessage} key={message.id} message={message} />
+        <Message
+          readMessage={readMessage}
+          key={`${page}-${message.id}`}
+          message={message}
+        />
       ))
     ) : (
       <div>Veuillez selectionner une agence</div>
