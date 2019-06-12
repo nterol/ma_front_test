@@ -4,11 +4,11 @@ import { withMainContext, MainContextType } from "../main/MainContext";
 
 type Props = Pick<MainContextType, "notifications">;
 
-const SNotification = ({ notifications }: Props) => (
+export const SNotification = ({ notifications }: Props) => (
   <div>
-    <NotificationButton unread={notifications}>
+    <NotificationButton data-test="notification-button" unread={notifications}>
       <i className="mypro-icon mypro-icon-mail" />
-      <Unread>{notifications}</Unread>
+      <Unread data-test="notification-container">{notifications}</Unread>
     </NotificationButton>
   </div>
 );

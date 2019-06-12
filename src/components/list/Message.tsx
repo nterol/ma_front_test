@@ -40,7 +40,11 @@ export const Message: React.FunctionComponent<Props> = ({
     readMessage(id);
   };
   return (
-    <MessageContainer id={id.toString()} onClick={handleClick}>
+    <MessageContainer
+      data-test="message-container"
+      id={id.toString()}
+      onClick={handleClick}
+    >
       <MessageHeader>
         <MessageHead>
           <i

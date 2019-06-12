@@ -2,6 +2,7 @@ import React from "react";
 
 import { AllRealtorsType } from "../../types";
 import { dataFetcher } from "./utils";
+import axios from "axios";
 
 export type MainContextType = {
   realtor: string;
@@ -34,14 +35,20 @@ export class MainProvider extends React.Component<Props, State> {
     notifications: 0
   };
 
+  cancelToken = axios.CancelToken.source();
+
   async componentDidMount() {
-    const data = await dataFetcher();
+    const data = await dataFetcher("", this.cancelToken);
     const { unread_messages: notifications } = data[this.state.realtor];
 
     this.setState({
       notifications,
       allRealtors: data
     });
+  }
+
+  componentWillUnmount() {
+    this.cancelToken.cancel("Api is being canceled");
   }
 
   setRealtors = async (realtor: string) => {
