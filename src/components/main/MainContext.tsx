@@ -45,7 +45,14 @@ export class MainProvider extends React.Component<Props, State> {
   }
 
   setRealtors = async (realtor: string) => {
-    this.setState({ realtor });
+    const { allRealtors }: any = this.state;
+
+    const { unread_messages: notifications } = allRealtors[realtor];
+
+    this.setState({
+      realtor,
+      notifications
+    });
   };
 
   setNotifications = (value: number) => {

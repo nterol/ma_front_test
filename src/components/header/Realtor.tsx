@@ -9,12 +9,10 @@ const SRealtor: React.FunctionComponent<Props> = ({ allRealtors, realtor }) => {
   const condition = realtor && Object.values(allRealtors).length;
   return (
     <RealtorContainer>
-      {condition ? (
-        <ProfilPicture src={allRealtors[parseInt(realtor)].logo} />
-      ) : null}
+      {condition ? <ProfilPicture src={allRealtors[realtor].logo} /> : null}
 
       {condition ? (
-        <RealtorTitle>{allRealtors[parseInt(realtor)].name}</RealtorTitle>
+        <RealtorTitle>{allRealtors[realtor].name}</RealtorTitle>
       ) : null}
       <RealtorDropdown />
     </RealtorContainer>

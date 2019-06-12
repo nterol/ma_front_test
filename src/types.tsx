@@ -6,7 +6,7 @@ export type RealtorType = {
 };
 
 export type AllRealtorsType = {
-  [n: number]: RealtorType;
+  [key: string]: RealtorType;
 };
 
 export type ContactType = {

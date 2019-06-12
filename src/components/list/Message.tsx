@@ -18,9 +18,21 @@ export const Message: React.FunctionComponent<Props> = ({
     return type;
   };
 
+  const week = [
+    "dimanche",
+    "lundi",
+    "mardi",
+    "mercredi",
+    "jeudi",
+    "vendredi",
+    "samedi"
+  ];
+
   const getMoment = () => {
-    // const d = new Date(date);
-    return "Hier";
+    const d = new Date(date);
+    const today = new Date();
+    if (today > d) return week[d.getDay()];
+    return `${d.getHours()}:${d.getMinutes()}`;
   };
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
