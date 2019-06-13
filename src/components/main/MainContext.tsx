@@ -2,7 +2,6 @@ import React from "react";
 
 import { AllRealtorsType } from "../../types";
 import { dataFetcher } from "./utils";
-import axios from "axios";
 
 export type MainContextType = {
   realtor: string;
@@ -13,7 +12,7 @@ export type MainContextType = {
 };
 
 const MainContext = React.createContext<{}>({
-  realtor: "101",
+  realtor: "",
   setRealtors: () => {},
   setNotifications: () => {},
   allRealtors: {},
@@ -35,8 +34,6 @@ export class MainProvider extends React.Component<Props, State> {
     notifications: 0
   };
 
-  
-
   async componentDidMount() {
     const data = await dataFetcher();
     const { unread_messages: notifications } = data[this.state.realtor];
@@ -46,8 +43,6 @@ export class MainProvider extends React.Component<Props, State> {
       allRealtors: data
     });
   }
-
-  
 
   setRealtors = async (realtor: string) => {
     const { allRealtors }: any = this.state;

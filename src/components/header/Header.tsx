@@ -1,17 +1,12 @@
 import React from "react";
-import { MainContextType, withMainContext } from "../main/MainContext";
 
-import logo from "../../assets/logo-meilleursagentspro-neg.svg";
 import { Notification } from "./Notification";
-import { HeaderContainer, NavLeft } from "./styles";
+
 import { Realtor } from "./Realtor";
+import { HeaderContainer, NavLeft } from "./styles";
+import logo from "../../assets/logo-meilleursagentspro-neg.svg";
 
-interface Props extends MainContextType {}
-
-export const SHeader: React.FunctionComponent<Props> = ({
-  allRealtors,
-  realtor
-}) => {
+export const Header: React.FunctionComponent = () => {
   return (
     <HeaderContainer>
       <NavLeft>
@@ -24,5 +19,3 @@ export const SHeader: React.FunctionComponent<Props> = ({
     </HeaderContainer>
   );
 };
-
-export const Header = withMainContext(SHeader);

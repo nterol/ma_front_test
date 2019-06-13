@@ -4,6 +4,8 @@ import { MessageContainer, MessageHeader, MessageHead } from "./styles";
 import { MessageType } from "../../types";
 import { MessageDate, MessageSubject, MessageBody } from "./styles";
 
+import { week } from "./utils";
+
 type Props = {
   message: MessageType;
   readMessage: (arg: string) => void;
@@ -17,16 +19,6 @@ export const Message: React.FunctionComponent<Props> = ({
     if (type === "email") return "mail";
     return type;
   };
-
-  const week = [
-    "dimanche",
-    "lundi",
-    "mardi",
-    "mercredi",
-    "jeudi",
-    "vendredi",
-    "samedi"
-  ];
 
   const getMoment = () => {
     const d = new Date(date);

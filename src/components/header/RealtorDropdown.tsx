@@ -14,6 +14,7 @@ class SRealtorDropdown extends React.Component<Props, State> {
 
   handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.currentTarget;
+
     this.setState({ value }, () => this.props.setRealtors(value));
   };
 
